@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.peter.findr_practice_app.MainActivity">
+
+    <Button
+        android:id="@+id/btn_admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Administrator" />
+
+    <Button
+        android:id="@+id/btn_merchant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Merchant" />
+</LinearLayout>
