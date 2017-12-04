@@ -12,15 +12,17 @@ public class AuthLogic {
     private static final String PREF_APP = "com.example.peter.findr_practice_app.PREF_APP";
     private static final String PREF_TOKEN = "com.example.peter.findr_practice_app.PREF_TOKEN";
 
-    private SharedPreferences getSharedPreference(Context context) {
+    private static SharedPreferences getSharedPreference(Context context) {
         SharedPreferences pref = context.getSharedPreferences(PREF_APP, Context.MODE_PRIVATE);
         return pref;
     }
 
-    private void setPrefToken(String token) {
-        priva
-
+    public void setPrefToken(Context context, String token) {
+        SharedPreferences pref = getSharedPreference(context);
+        pref.edit().putString(PREF_TOKEN, "Bearer " + token).commit();
     }
 
-
+    public static String getPrefToken(Context context) {
+        return getSharedPreference(context).getString(PREF_TOKEN, "");
+    }
 }
