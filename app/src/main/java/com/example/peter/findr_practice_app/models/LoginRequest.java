@@ -1,4 +1,4 @@
-package com.example.peter.findr_practice_app;
+package com.example.peter.findr_practice_app.models;
 
 /**
  * Created by peter on 12/1/17.

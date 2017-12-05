@@ -1,4 +1,4 @@
-package com.example.peter.findr_practice_app;
+package com.example.peter.findr_practice_app.logics;
 
 import android.content.Context;
 import android.content.SharedPreferences;

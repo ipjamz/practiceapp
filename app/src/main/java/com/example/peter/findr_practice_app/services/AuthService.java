@@ -1,4 +1,7 @@
-package com.example.peter.findr_practice_app;
+package com.example.peter.findr_practice_app.services;
+
+import com.example.peter.findr_practice_app.models.LoginRequest;
+import com.example.peter.findr_practice_app.models.Authorization;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

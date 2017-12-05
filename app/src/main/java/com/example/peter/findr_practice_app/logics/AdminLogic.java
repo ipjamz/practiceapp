@@ -1,7 +1,11 @@
-package com.example.peter.findr_practice_app;
+package com.example.peter.findr_practice_app.logics;
 
-import android.content.Context;
 import android.util.Log;
+
+import com.example.peter.findr_practice_app.services.AdminService;
+import com.example.peter.findr_practice_app.PracticeApp;
+import com.example.peter.findr_practice_app.RestUrlUtil;
+import com.example.peter.findr_practice_app.models.Admin;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,10 @@
-package com.example.peter.findr_practice_app;
+package com.example.peter.findr_practice_app.services;
+
+import com.example.peter.findr_practice_app.models.Admin;
 
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 

@@ -1,4 +1,7 @@
-package com.example.peter.findr_practice_app;
+package com.example.peter.findr_practice_app.models;
+
+import com.example.peter.findr_practice_app.models.Business;
+import com.example.peter.findr_practice_app.models.Info;
 
 /**
  * Created by peter on 11/29/17.

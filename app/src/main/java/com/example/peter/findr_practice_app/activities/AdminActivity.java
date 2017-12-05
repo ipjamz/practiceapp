@@ -1,10 +1,13 @@
-package com.example.peter.findr_practice_app;
+package com.example.peter.findr_practice_app.activities;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
+
+import com.example.peter.findr_practice_app.AdminListView;
+import com.example.peter.findr_practice_app.R;
 
 /**
  * Created by peter on 12/4/17.

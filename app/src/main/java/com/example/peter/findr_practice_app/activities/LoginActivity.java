@@ -1,4 +1,4 @@
-package com.example.peter.findr_practice_app;
+package com.example.peter.findr_practice_app.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.peter.findr_practice_app.logics.AuthLogic;
+import com.example.peter.findr_practice_app.services.AuthService;
+import com.example.peter.findr_practice_app.models.Authorization;
+import com.example.peter.findr_practice_app.models.LoginRequest;
+import com.example.peter.findr_practice_app.PracticeApp;
+import com.example.peter.findr_practice_app.R;
+import com.example.peter.findr_practice_app.RestUrlUtil;
 
 import retrofit2.Call;
 import retrofit2.Callback;
