@@ -1,5 +1,6 @@
 package com.example.peter.findr_practice_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -33,12 +34,16 @@ public class LoginActivity extends AppCompatActivity {
                 loginRequest.setUsername(((TextView) findViewById(R.id.et_username)).getText().toString());
                 loginRequest.setPassword(((TextView) findViewById(R.id.et_password)).getText().toString());
 
-                Call<Authorization> call = RestfulUrlUtil.getRetrofit().create(AuthService.class).login(loginRequest);
+                Call<Authorization> call = RestUrlUtil.getRetrofit().create(AuthService.class).login(loginRequest);
                 call.enqueue(new Callback<Authorization>() {
                     @Override
                     public void onResponse(Call<Authorization> call, Response<Authorization> response) {
-
-                        Log.e("Token", response.body().getToken().toString());
+                        if (response.body() != null) {
+                            AuthLogic.setPrefToken(PracticeApp.getContext(), response.body().getToken().toString());
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
                     }
 
                     @Override

@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by peter on 12/1/17.
  */
 
-public class RestfulUrlUtil {
+public class RestUrlUtil {
 
     public static Retrofit getRetrofit() {
         Log.e("LOCAL_URL", BuildConfig.LOCAL_URL);
@@ -20,6 +20,7 @@ public class RestfulUrlUtil {
         return retrofit;
 
     }
+
 
 
 }

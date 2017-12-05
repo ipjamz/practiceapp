@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
         ((Button) findViewById(R.id.btn_admin)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AdminActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -1,10 +1,10 @@
 package com.example.peter.findr_practice_app;
 
 /**
- * Created by peter on 11/29/17.
+ * Created by peter on 12/4/17.
  */
 
-public class UserRequest {
+public class Admin {
 
     private boolean accountNonExpired;
     private boolean accountNonLocked;
