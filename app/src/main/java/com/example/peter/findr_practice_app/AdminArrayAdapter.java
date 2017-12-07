@@ -19,11 +19,11 @@ import java.util.List;
  * Created by peter on 12/4/17.
  */
 
-public class AdminArrayAdapter extends ArrayAdapter<String> {
+public class AdminArrayAdapter extends ArrayAdapter<Admin> {
 
     private int i;
 
-    public AdminArrayAdapter(@NonNull Context context, int resource, @NonNull String[] objects) {
+    public AdminArrayAdapter(@NonNull Context context, int resource, @NonNull List<Admin> objects) {
         super(context, resource, objects);
         i = resource;
     }
@@ -34,9 +34,12 @@ public class AdminArrayAdapter extends ArrayAdapter<String> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(i, parent, false);
             TextView mName = (TextView) convertView.findViewById(R.id.tv_name);
-//            TextView mEmail = (TextView) convertView.findViewById(R.id.tv_email);
+            TextView mEmail = (TextView) convertView.findViewById(R.id.tv_email);
 
-            mName.setText(getItem(position));
+            Admin admin = getItem(position);
+
+            mName.setText(admin.getName());
+            mEmail.setText(admin.getEmail());
         }
         return convertView;
     }
