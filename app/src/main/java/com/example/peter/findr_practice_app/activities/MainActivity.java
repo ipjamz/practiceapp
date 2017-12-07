@@ -10,6 +10,7 @@ import com.example.peter.findr_practice_app.R;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         ((Button) findViewById(R.id.btn_merchant)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
             }
         });
     }
