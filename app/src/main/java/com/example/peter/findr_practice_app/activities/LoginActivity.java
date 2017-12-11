@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
+import com.example.peter.findr_practice_app.PracticeAppPref;
 import com.example.peter.findr_practice_app.logics.AuthLogic;
 import com.example.peter.findr_practice_app.models.Authorization;
 import com.example.peter.findr_practice_app.PracticeApp;
@@ -32,8 +32,10 @@ public class LoginActivity extends AppCompatActivity implements AuthCallback {
             public void onClick(View view) {
 
                 LoginRequest loginRequest = new LoginRequest();
-                loginRequest.setUsername(((TextView) findViewById(R.id.et_username)).getText().toString());
-                loginRequest.setPassword(((TextView) findViewById(R.id.et_password)).getText().toString());
+//                loginRequest.setUsername(((TextView) findViewById(R.id.et_username)).getText().toString());
+//                loginRequest.setPassword(((TextView) findViewById(R.id.et_password)).getText().toString());
+                loginRequest.setUsername("admin@satellite.com.ph");
+                loginRequest.setPassword("admin");
 
                 final AuthLogic authLogic = new AuthLogic();
                 authLogic.authorize(loginRequest, LoginActivity.this);
@@ -50,7 +52,7 @@ public class LoginActivity extends AppCompatActivity implements AuthCallback {
     @Override
     public void onSuccess(Authorization authorization) {
         Log.e("Token", authorization.getToken());
-        AuthLogic.setPrefToken(PracticeApp.getContext(), authorization.getToken());
+        PracticeAppPref.setPrefToken(PracticeApp.getContext(), authorization.getToken());
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
 

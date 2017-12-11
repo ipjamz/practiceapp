@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.example.peter.findr_practice_app.AdminArrayAdapter;
 import com.example.peter.findr_practice_app.PracticeApp;
+import com.example.peter.findr_practice_app.PracticeAppPref;
 import com.example.peter.findr_practice_app.R;
 import com.example.peter.findr_practice_app.RestUrlUtil;
 import com.example.peter.findr_practice_app.logics.AuthLogic;
@@ -31,19 +32,8 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.activity_admin, R.id.tv_name, admins);
-
-//        List<Admin> adminList = new ArrayList<>();
-//
-//        for (int i = 0; i < 5; i++) {
-//            Admin admin = new Admin();
-//            admin.setName("FirstName" + i);
-//            admin.setEmail("Email" + i);
-//            adminList.add(admin);
-//        }
-
-        Call<List<Admin>> adminsList = RestUrlUtil.getRetrofit().create(AdminService.class).getAdminList(AuthLogic.getPrefToken(PracticeApp.getContext()));
-        Log.e("Token", AuthLogic.getPrefToken(PracticeApp.getContext()));
+        Call<List<Admin>> adminsList = RestUrlUtil.getRetrofit().create(AdminService.class).getAdminList(PracticeAppPref.getPrefToken(PracticeApp.getContext()));
+        Log.e("Token", PracticeAppPref.getPrefToken(PracticeApp.getContext()));
         adminsList.enqueue(new Callback<List<Admin>>() {
             @Override
             public void onResponse(Call<List<Admin>> call, Response<List<Admin>> response) {

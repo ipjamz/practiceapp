@@ -2,6 +2,7 @@ package com.example.peter.findr_practice_app.logics;
 
 import android.util.Log;
 
+import com.example.peter.findr_practice_app.PracticeAppPref;
 import com.example.peter.findr_practice_app.services.AdminService;
 import com.example.peter.findr_practice_app.PracticeApp;
 import com.example.peter.findr_practice_app.RestUrlUtil;
@@ -22,8 +23,8 @@ public class AdminLogic {
 
     public List<Admin> getAdminList() {
         final List<Admin> adminList = new ArrayList<>();
-        Log.e("Token", AuthLogic.getPrefToken(PracticeApp.getContext()));
-        Call<List<Admin>> call = RestUrlUtil.getRetrofit().create(AdminService.class).getAdminList(AuthLogic.getPrefToken(PracticeApp.getContext()));
+        Log.e("Token", PracticeAppPref.getPrefToken(PracticeApp.getContext()));
+        Call<List<Admin>> call = RestUrlUtil.getRetrofit().create(AdminService.class).getAdminList(PracticeAppPref.getPrefToken(PracticeApp.getContext()));
         call.enqueue(new Callback<List<Admin>>() {
             @Override
             public void onResponse(Call<List<Admin>> call, Response<List<Admin>> response) {
