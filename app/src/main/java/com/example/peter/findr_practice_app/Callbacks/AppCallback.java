@@ -8,7 +8,7 @@ import java.util.List;
  */
 
 public interface AppCallback<T> {
-    void onSuccess(T adminList);
+    void onSuccess(T object);
 
     void onError(String error);
 }
