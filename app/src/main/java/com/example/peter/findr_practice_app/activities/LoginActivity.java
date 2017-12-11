@@ -1,6 +1,5 @@
 package com.example.peter.findr_practice_app.activities;
 
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.peter.findr_practice_app.AuthCallback;
 import com.example.peter.findr_practice_app.PracticeAppPref;
 import com.example.peter.findr_practice_app.logics.AuthLogic;
 import com.example.peter.findr_practice_app.models.Authorization;
@@ -63,17 +63,4 @@ public class LoginActivity extends AppCompatActivity implements AuthCallback {
         Log.e("Auth", error);
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.e("onSaveInstanceState", outState.toString());
-
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        Log.e("onRestoreInstanceState", savedInstanceState.toString());
-
-    }
 }

@@ -1,16 +1,7 @@
 package com.example.peter.findr_practice_app.logics;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
-
-import com.example.peter.findr_practice_app.PracticeApp;
 import com.example.peter.findr_practice_app.RestUrlUtil;
-import com.example.peter.findr_practice_app.activities.AuthCallback;
-import com.example.peter.findr_practice_app.activities.LoginActivity;
-import com.example.peter.findr_practice_app.activities.MainActivity;
+import com.example.peter.findr_practice_app.AuthCallback;
 import com.example.peter.findr_practice_app.models.Authorization;
 import com.example.peter.findr_practice_app.models.LoginRequest;
 import com.example.peter.findr_practice_app.services.AuthService;

@@ -2,6 +2,7 @@ package com.example.peter.findr_practice_app.logics;
 
 import android.util.Log;
 
+import com.example.peter.findr_practice_app.AppCallBack;
 import com.example.peter.findr_practice_app.PracticeAppPref;
 import com.example.peter.findr_practice_app.services.AdminService;
 import com.example.peter.findr_practice_app.PracticeApp;
@@ -21,27 +22,25 @@ import retrofit2.Response;
 
 public class AdminLogic {
 
-    public List<Admin> getAdminList() {
-        final List<Admin> adminList = new ArrayList<>();
+    public void getAdminList(final AppCallBack callBack) {
+        Call<List<Admin>> adminsList = RestUrlUtil.getRetrofit().create(AdminService.class).getAdminList(PracticeAppPref.getPrefToken(PracticeApp.getContext()));
         Log.e("Token", PracticeAppPref.getPrefToken(PracticeApp.getContext()));
-        Call<List<Admin>> call = RestUrlUtil.getRetrofit().create(AdminService.class).getAdminList(PracticeAppPref.getPrefToken(PracticeApp.getContext()));
-        call.enqueue(new Callback<List<Admin>>() {
+        adminsList.enqueue(new Callback<List<Admin>>() {
             @Override
             public void onResponse(Call<List<Admin>> call, Response<List<Admin>> response) {
-                if (response.body() != null) {
-                    Log.e("Admins", response.body().toString());
-                    for (Admin admin : response.body()) {
-                        adminList.add(admin);
-                    }
+                if (response.body() == null) {
+                    callBack.onError("error");
+                } else {
+                    callBack.onSuccess(response.body());
                 }
+
             }
 
             @Override
             public void onFailure(Call<List<Admin>> call, Throwable t) {
-                Log.e("List<Admin>", "Failed");
+                callBack.onError(t.getMessage());
             }
         });
 
-        return adminList;
     }
 }

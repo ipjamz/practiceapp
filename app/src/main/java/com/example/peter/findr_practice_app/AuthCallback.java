@@ -1,4 +1,4 @@
-package com.example.peter.findr_practice_app.activities;
+package com.example.peter.findr_practice_app;
 
 import com.example.peter.findr_practice_app.models.Authorization;
 
