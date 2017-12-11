@@ -40,6 +40,7 @@ public class AdminArrayAdapter extends ArrayAdapter<Admin> {
 
             mName.setText(admin.getName());
             mEmail.setText(admin.getEmail());
+
         }
         return convertView;
     }

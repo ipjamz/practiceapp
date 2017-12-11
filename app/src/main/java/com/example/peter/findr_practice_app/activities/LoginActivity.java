@@ -40,8 +40,6 @@ public class LoginActivity extends AppCompatActivity implements AppCallback<Auth
                 final AuthLogic authLogic = new AuthLogic();
                 authLogic.authorize(loginRequest, LoginActivity.this);
             }
-
-
         });
     }
 
@@ -51,12 +49,10 @@ public class LoginActivity extends AppCompatActivity implements AppCallback<Auth
         PracticeAppPref.setPrefToken(PracticeApp.getContext(), authorization.getToken());
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
-
     }
 
     @Override
     public void onError(String error) {
         Log.e("Auth", error);
     }
-
 }

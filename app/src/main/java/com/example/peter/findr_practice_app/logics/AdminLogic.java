@@ -32,12 +32,28 @@ public class AdminLogic {
                 } else {
                     callBack.onSuccess(response.body());
                 }
-
             }
 
             @Override
             public void onFailure(Call<List<Admin>> call, Throwable t) {
                 callBack.onError(t.getMessage());
+            }
+        });
+    }
+
+    public void saveAdmin(Admin adminRequest, final AppCallback<String> callback) {
+        Call<Admin> admin = RestUrlUtil.getRetrofit().create(AdminService.class).saveAdmin(adminRequest, PracticeAppPref.getPrefToken(PracticeApp.getContext()));
+        admin.enqueue(new Callback<Admin>() {
+            @Override
+            public void onResponse(Call<Admin> call, Response<Admin> response) {
+                if (response.isSuccessful()) {
+                    callback.onSuccess("Success");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Admin> call, Throwable t) {
+                callback.onError(t.getMessage());
             }
         });
 
