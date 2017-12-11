@@ -5,6 +5,7 @@ import com.example.peter.findr_practice_app.models.Admin;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 
@@ -14,6 +15,6 @@ import retrofit2.http.POST;
 
 public interface AdminService {
 
-    @POST("/api/admin/list")
+    @GET("/api/admin/list")
     Call<List<Admin>> getAdminList(@Header("Authorization") String token);
 }
