@@ -17,8 +17,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ((Button) findViewById(R.id.btn_admin)).setText(getIntent().getStringExtra("Test"));
-
         ((Button) findViewById(R.id.btn_admin)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,18 +32,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.e("onSaveInstanceState", outState.toString());
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        Log.e("onRestoreInstanceState", savedInstanceState.toString());
-
     }
 }

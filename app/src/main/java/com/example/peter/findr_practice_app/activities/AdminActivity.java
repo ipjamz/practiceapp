@@ -7,28 +7,18 @@ import android.util.Log;
 import android.widget.ListView;
 
 import com.example.peter.findr_practice_app.AdminArrayAdapter;
-import com.example.peter.findr_practice_app.AppCallBack;
-import com.example.peter.findr_practice_app.PracticeApp;
-import com.example.peter.findr_practice_app.PracticeAppPref;
+import com.example.peter.findr_practice_app.Callbacks.AdminCallback;
 import com.example.peter.findr_practice_app.R;
-import com.example.peter.findr_practice_app.RestUrlUtil;
 import com.example.peter.findr_practice_app.logics.AdminLogic;
-import com.example.peter.findr_practice_app.logics.AuthLogic;
 import com.example.peter.findr_practice_app.models.Admin;
-import com.example.peter.findr_practice_app.services.AdminService;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by peter on 12/4/17.
  */
 
-public class AdminActivity extends AppCompatActivity implements AppCallBack {
+public class AdminActivity extends AppCompatActivity implements AdminCallback {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,8 +29,8 @@ public class AdminActivity extends AppCompatActivity implements AppCallBack {
     }
 
     @Override
-    public void onSuccess(Object object) {
-        AdminArrayAdapter adapter = new AdminArrayAdapter(AdminActivity.this, R.layout.activity_admin, (List<Admin>) object);
+    public void onSuccess(List<Admin> adminList) {
+        AdminArrayAdapter adapter = new AdminArrayAdapter(AdminActivity.this, R.layout.activity_admin, adminList);
         ListView listView = new ListView(AdminActivity.this);
         listView.setAdapter(adapter);
         setContentView(listView);

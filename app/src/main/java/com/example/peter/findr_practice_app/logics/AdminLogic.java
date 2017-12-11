@@ -2,14 +2,13 @@ package com.example.peter.findr_practice_app.logics;
 
 import android.util.Log;
 
-import com.example.peter.findr_practice_app.AppCallBack;
+import com.example.peter.findr_practice_app.Callbacks.AdminCallback;
 import com.example.peter.findr_practice_app.PracticeAppPref;
 import com.example.peter.findr_practice_app.services.AdminService;
 import com.example.peter.findr_practice_app.PracticeApp;
 import com.example.peter.findr_practice_app.RestUrlUtil;
 import com.example.peter.findr_practice_app.models.Admin;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -22,7 +21,7 @@ import retrofit2.Response;
 
 public class AdminLogic {
 
-    public void getAdminList(final AppCallBack callBack) {
+    public void getAdminList(final AdminCallback callBack) {
         Call<List<Admin>> adminsList = RestUrlUtil.getRetrofit().create(AdminService.class).getAdminList(PracticeAppPref.getPrefToken(PracticeApp.getContext()));
         Log.e("Token", PracticeAppPref.getPrefToken(PracticeApp.getContext()));
         adminsList.enqueue(new Callback<List<Admin>>() {

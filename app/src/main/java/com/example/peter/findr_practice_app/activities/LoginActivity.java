@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.peter.findr_practice_app.AuthCallback;
+import com.example.peter.findr_practice_app.Callbacks.AuthCallback;
 import com.example.peter.findr_practice_app.PracticeAppPref;
 import com.example.peter.findr_practice_app.logics.AuthLogic;
 import com.example.peter.findr_practice_app.models.Authorization;
@@ -39,10 +39,6 @@ public class LoginActivity extends AppCompatActivity implements AuthCallback {
 
                 final AuthLogic authLogic = new AuthLogic();
                 authLogic.authorize(loginRequest, LoginActivity.this);
-
-//                Intent intent = new Intent(PracticeApp.getContext(), MainActivity.class);
-//                startActivity(intent);
-
             }
 
 
