@@ -7,7 +7,7 @@ import android.util.Log;
 import android.widget.ListView;
 
 import com.example.peter.findr_practice_app.AdminArrayAdapter;
-import com.example.peter.findr_practice_app.Callbacks.AdminCallback;
+import com.example.peter.findr_practice_app.Callbacks.AppCallback;
 import com.example.peter.findr_practice_app.R;
 import com.example.peter.findr_practice_app.logics.AdminLogic;
 import com.example.peter.findr_practice_app.models.Admin;
@@ -18,7 +18,7 @@ import java.util.List;
  * Created by peter on 12/4/17.
  */
 
-public class AdminActivity extends AppCompatActivity implements AdminCallback {
+public class AdminActivity extends AppCompatActivity implements AppCallback<List<Admin>> {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

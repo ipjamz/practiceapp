@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.peter.findr_practice_app.Callbacks.AuthCallback;
+import com.example.peter.findr_practice_app.Callbacks.AppCallback;
 import com.example.peter.findr_practice_app.PracticeAppPref;
 import com.example.peter.findr_practice_app.logics.AuthLogic;
 import com.example.peter.findr_practice_app.models.Authorization;
@@ -20,7 +20,7 @@ import com.example.peter.findr_practice_app.models.LoginRequest;
  * Created by peter on 11/29/17.
  */
 
-public class LoginActivity extends AppCompatActivity implements AuthCallback {
+public class LoginActivity extends AppCompatActivity implements AppCallback<Authorization> {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
