@@ -58,6 +58,5 @@ public class AdminLogic {
                 callback.onError(t.getMessage());
             }
         });
-
     }
 }

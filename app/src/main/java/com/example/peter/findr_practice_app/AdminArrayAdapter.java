@@ -3,15 +3,12 @@ package com.example.peter.findr_practice_app;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.peter.findr_practice_app.logics.AdminLogic;
 import com.example.peter.findr_practice_app.models.Admin;
 
 import java.util.List;
@@ -41,7 +38,6 @@ public class AdminArrayAdapter extends ArrayAdapter<Admin> {
 
             mName.setText(admin.getName());
             mEmail.setText(admin.getEmail());
-
         }
         return convertView;
     }

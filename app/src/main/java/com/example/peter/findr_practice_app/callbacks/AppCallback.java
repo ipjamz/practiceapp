@@ -1,8 +1,6 @@
 package com.example.peter.findr_practice_app.callbacks;
 
 
-import java.util.List;
-
 /**
  * Created by peter on 12/11/17.
  */

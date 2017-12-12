@@ -57,5 +57,4 @@ public class AdminActivity extends AppCompatActivity implements AppCallback<List
             startActivity(intent);
         }
     }
-
 }

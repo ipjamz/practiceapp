@@ -21,5 +21,4 @@ public interface AdminService {
 
     @POST("/api/admin/save")
     Call<Admin> saveAdmin(@Body Admin request, @Header("Authorization") String token);
-
 }
