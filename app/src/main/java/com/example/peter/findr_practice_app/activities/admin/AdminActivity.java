@@ -29,6 +29,11 @@ public class AdminActivity extends AppCompatActivity implements AppCallback<List
         setContentView(R.layout.activity_admin);
 
         ((Button) findViewById(R.id.btn_new_admin)).setOnClickListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getAdminList();
     }
 
@@ -49,6 +54,7 @@ public class AdminActivity extends AppCompatActivity implements AppCallback<List
         if (view == findViewById(R.id.btn_new_admin)) {
             Intent intent = new Intent(AdminActivity.this, AdminCreateActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 

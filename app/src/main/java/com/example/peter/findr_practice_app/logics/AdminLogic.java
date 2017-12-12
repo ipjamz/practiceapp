@@ -48,6 +48,8 @@ public class AdminLogic {
             public void onResponse(Call<Admin> call, Response<Admin> response) {
                 if (response.isSuccessful()) {
                     callback.onSuccess("Success");
+                } else {
+                    callback.onError("Error");
                 }
             }
 
