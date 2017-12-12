@@ -34,7 +34,8 @@ public class AdminActivity extends AppCompatActivity implements AppCallback<List
     @Override
     protected void onResume() {
         super.onResume();
-        getAdminList();
+        AdminLogic logic = new AdminLogic();
+        logic.getAdminList(AdminActivity.this);
     }
 
     @Override
@@ -54,17 +55,7 @@ public class AdminActivity extends AppCompatActivity implements AppCallback<List
         if (view == findViewById(R.id.btn_new_admin)) {
             Intent intent = new Intent(AdminActivity.this, AdminCreateActivity.class);
             startActivity(intent);
-            finish();
         }
     }
 
-    private void getAdminList() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                AdminLogic logic = new AdminLogic();
-                logic.getAdminList(AdminActivity.this);
-            }
-        }).start();
-    }
 }
