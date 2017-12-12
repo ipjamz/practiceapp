@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RestUrlUtil {
 
     public static Retrofit getRetrofit() {
-        Log.e("LOCAL_URL", BuildConfig.LOCAL_URL);
+        Log.w("LOCAL_URL", BuildConfig.LOCAL_URL);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BuildConfig.LOCAL_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -20,7 +20,6 @@ public class RestUrlUtil {
         return retrofit;
 
     }
-
 
 
 }

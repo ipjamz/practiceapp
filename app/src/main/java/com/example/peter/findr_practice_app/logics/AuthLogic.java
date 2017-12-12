@@ -1,8 +1,7 @@
 package com.example.peter.findr_practice_app.logics;
 
-import com.example.peter.findr_practice_app.Callbacks.AppCallback;
+import com.example.peter.findr_practice_app.callbacks.AppCallback;
 import com.example.peter.findr_practice_app.RestUrlUtil;
-import com.example.peter.findr_practice_app.models.Admin;
 import com.example.peter.findr_practice_app.models.Authorization;
 import com.example.peter.findr_practice_app.models.LoginRequest;
 import com.example.peter.findr_practice_app.services.AuthService;

@@ -1,4 +1,4 @@
-package com.example.peter.findr_practice_app.Callbacks;
+package com.example.peter.findr_practice_app.callbacks;
 
 
 import java.util.List;
