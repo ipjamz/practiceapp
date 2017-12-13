@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.peter.findr_practice_app.AdminArrayAdapter;
+import com.example.peter.findr_practice_app.activities.adapters.AdminArrayAdapter;
 import com.example.peter.findr_practice_app.callbacks.AppCallback;
 import com.example.peter.findr_practice_app.R;
 import com.example.peter.findr_practice_app.logics.AdminLogic;

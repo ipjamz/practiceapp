@@ -7,7 +7,7 @@ import com.example.peter.findr_practice_app.models.Info;
  * Created by peter on 11/29/17.
  */
 
-public class MerchantRequest {
+public class Merchant {
 
     private boolean active;
     private String createdBy;

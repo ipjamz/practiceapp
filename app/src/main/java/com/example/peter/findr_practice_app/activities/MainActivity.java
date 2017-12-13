@@ -11,7 +11,6 @@ import com.example.peter.findr_practice_app.activities.admin.AdminActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, AdminActivity.class);
             startActivity(intent);
         } else if (view == findViewById(R.id.btn_merchant)) {
-
         }
     }
 }

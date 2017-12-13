@@ -1,4 +1,4 @@
-package com.example.peter.findr_practice_app;
+package com.example.peter.findr_practice_app.activities.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.peter.findr_practice_app.R;
 import com.example.peter.findr_practice_app.models.Admin;
 
 import java.util.List;
