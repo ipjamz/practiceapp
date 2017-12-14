@@ -32,13 +32,11 @@ public class AdminArrayAdapter extends ArrayAdapter<Admin> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(i, parent, false);
-            TextView mName = (TextView) convertView.findViewById(R.id.tv_name);
-            TextView mEmail = (TextView) convertView.findViewById(R.id.tv_email);
 
             Admin admin = getItem(position);
 
-            mName.setText(admin.getName());
-            mEmail.setText(admin.getEmail());
+            ((TextView) convertView.findViewById(R.id.tv_name)).setText("Name: " + admin.getName());
+            ((TextView) convertView.findViewById(R.id.tv_email)).setText("Email: " + admin.getEmail());
         }
         return convertView;
     }

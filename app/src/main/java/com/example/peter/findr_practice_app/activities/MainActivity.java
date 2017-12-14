@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, AdminActivity.class);
             startActivity(intent);
         } else if (view == findViewById(R.id.btn_merchant)) {
+            Intent intent = new Intent(MainActivity.this, MerchantActivity.class);
+            startActivity(intent);
         }
     }
 }

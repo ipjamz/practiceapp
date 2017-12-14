@@ -33,6 +33,10 @@
         <activity
             android:name=".activities.admin.AdminCreateActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activities.MerchantActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

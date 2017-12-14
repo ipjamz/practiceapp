@@ -3,9 +3,10 @@ package com.example.peter.findr_practice_app.activities;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.peter.findr_practice_app.R;
+import com.example.peter.findr_practice_app.activities.adapters.MerchantArrayAdapter;
 import com.example.peter.findr_practice_app.callbacks.AppCallback;
 import com.example.peter.findr_practice_app.logics.MerchantLogic;
 import com.example.peter.findr_practice_app.models.Merchant;
@@ -34,7 +35,9 @@ public class MerchantActivity extends AppCompatActivity implements AppCallback<L
 
     @Override
     public void onSuccess(List<Merchant> object) {
-
+        MerchantArrayAdapter adapter = new MerchantArrayAdapter(this, R.layout.row_merchant, object);
+        ListView listView = (ListView) findViewById(R.id.lv_merchants);
+        listView.setAdapter(adapter);
     }
 
     @Override

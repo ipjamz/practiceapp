@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name: peter"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tv_business"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Business: business"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tv_credits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Findr Credits: 85.0"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tv_points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Findr Points: 446.0"
+        android:textColor="@android:color/black" />
+
+    <CheckBox
+        android:id="@+id/cb_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

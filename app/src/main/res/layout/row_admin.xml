@@ -9,12 +9,14 @@
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="name: peter" />
+        android:hint="Name: peter"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:id="@+id/tv_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="email: peter@gmail.com" />
+        android:hint="Email: peter@gmail.com"
+        android:textColor="@android:color/black" />
 
 </LinearLayout>
