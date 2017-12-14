@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.peter.findr_practice_app.R;
 import com.example.peter.findr_practice_app.activities.admin.AdminActivity;
+import com.example.peter.findr_practice_app.activities.merchant.MerchantActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

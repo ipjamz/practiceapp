@@ -25,6 +25,7 @@ public class AdminArrayAdapter extends ArrayAdapter<Admin> {
     public AdminArrayAdapter(@NonNull Context context, int resource, @NonNull List<Admin> objects) {
         super(context, resource, objects);
         i = resource;
+        notifyDataSetChanged();
     }
 
     @NonNull

@@ -3,5 +3,21 @@
     <string name="enter_name">Enter name</string>
     <string name="enter_email">Enter email</string>
     <string name="enter_password">Enter password</string>
-    <string name="confirm_pasword">Confirm password</string>
+    <string name="confirm_password">Confirm password</string>
+
+    <string name="business_name">Business Name</string>
+    <string name="business_tin">Business TIN</string>
+    <string name="number_of_employees">Number of Employees</string>
+    <string name="business_tag_line">Business Tag Line</string>
+    <string name="contact_number">Contact No.</string>
+    <string name="nature_of_business">Nature of Business</string>
+    <string name="username">User Name</string>
+    <string name="merchant_first_name">Merchant First Name</string>
+    <string name="merchant_last_name">Merchant Last Name</string>
+    <string name="business_email">Business Email</string>
+    <string name="category">Category</string>
+
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+
 </resources>

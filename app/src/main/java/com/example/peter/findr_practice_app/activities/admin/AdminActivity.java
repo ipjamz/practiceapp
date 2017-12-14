@@ -23,17 +23,16 @@ import java.util.List;
 
 public class AdminActivity extends AppCompatActivity implements AppCallback<List<Admin>>, View.OnClickListener {
 
+    private ListView listView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
         ((Button) findViewById(R.id.btn_new_admin)).setOnClickListener(this);
-    }
+        listView = (ListView) findViewById(R.id.lv_admins);
 
-    @Override
-    protected void onResume() {
-        super.onResume();
         AdminLogic logic = new AdminLogic();
         logic.getAdminList(AdminActivity.this);
     }
@@ -41,7 +40,6 @@ public class AdminActivity extends AppCompatActivity implements AppCallback<List
     @Override
     public void onSuccess(List<Admin> adminList) {
         AdminArrayAdapter adapter = new AdminArrayAdapter(AdminActivity.this, R.layout.row_admin, adminList);
-        ListView listView = (ListView) findViewById(R.id.lv_admins);
         listView.setAdapter(adapter);
     }
 
