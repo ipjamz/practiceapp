@@ -21,7 +21,7 @@ import java.util.List;
  * Created by peter on 12/14/17.
  */
 
-public class MerchantActivity extends AppCompatActivity implements AppCallback<List<Base>>, View.OnClickListener {
+public class MerchantActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ListView listView;
 
@@ -34,19 +34,19 @@ public class MerchantActivity extends AppCompatActivity implements AppCallback<L
         ((Button) findViewById(R.id.btn_new_merchant)).setOnClickListener(this);
 
         MerchantLogic merchantLogic = new MerchantLogic();
-        merchantLogic.getMerchantList(this);
+        merchantLogic.getMerchantList(new AppCallback<List<Base>>() {
+            @Override
+            public void onSuccess(List<Base> object) {
+                MerchantArrayAdapter adapter = new MerchantArrayAdapter(MerchantActivity.this, R.layout.row_merchant, object);
+                listView.setAdapter(adapter);
+            }
 
-    }
+            @Override
+            public void onError(String error) {
+                Log.w("Error", error);
+            }
+        });
 
-    @Override
-    public void onSuccess(List<Base> object) {
-        MerchantArrayAdapter adapter = new MerchantArrayAdapter(this, R.layout.row_merchant, object);
-        listView.setAdapter(adapter);
-    }
-
-    @Override
-    public void onError(String error) {
-        Log.w("Error", error);
     }
 
     @Override

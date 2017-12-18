@@ -22,7 +22,7 @@ import java.util.List;
  * Created by peter on 12/14/17.
  */
 
-public class MerchantCreateActivity extends AppCompatActivity implements View.OnClickListener, AppCallback<String> {
+public class MerchantCreateActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Spinner spinner;
 
@@ -61,17 +61,17 @@ public class MerchantCreateActivity extends AppCompatActivity implements View.On
         merchantRequest.setBusinessCategory(spinner.getSelectedItem().toString());
 
         MerchantLogic merchantLogic = new MerchantLogic();
-        merchantLogic.saveMerchant(merchantRequest, this);
-    }
+        merchantLogic.saveMerchant(merchantRequest, new AppCallback<String>() {
+            @Override
+            public void onSuccess(String object) {
+                Log.w("Save", object);
+            }
 
-    @Override
-    public void onSuccess(String object) {
-        Log.w("Save", object);
-    }
-
-    @Override
-    public void onError(String error) {
-        Log.w("Error", error);
+            @Override
+            public void onError(String error) {
+                Log.w("Error", error);
+            }
+        });
     }
 
 }

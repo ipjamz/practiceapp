@@ -20,7 +20,7 @@ import com.example.peter.findr_practice_app.models.LoginRequest;
  * Created by peter on 11/29/17.
  */
 
-public class LoginActivity extends AppCompatActivity implements AppCallback<Authorization>, View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,19 +28,6 @@ public class LoginActivity extends AppCompatActivity implements AppCallback<Auth
         setContentView(R.layout.activity_login);
 
         ((Button) findViewById(R.id.btn_login)).setOnClickListener(this);
-    }
-
-    @Override
-    public void onSuccess(Authorization authorization) {
-        Log.w("Token", authorization.getToken());
-        PracticeAppPref.setPrefToken(PracticeApp.getContext(), authorization.getToken());
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    @Override
-    public void onError(String error) {
-        Log.e("Auth", error);
     }
 
     @Override
@@ -53,7 +40,21 @@ public class LoginActivity extends AppCompatActivity implements AppCallback<Auth
             loginRequest.setPassword("admin");
 
             AuthLogic authLogic = new AuthLogic();
-            authLogic.authorize(loginRequest, LoginActivity.this);
+            authLogic.authorize(loginRequest, new AppCallback<Authorization>() {
+                @Override
+                public void onSuccess(Authorization object) {
+                    Log.w("Token", object.getToken());
+                    PracticeAppPref.setPrefToken(PracticeApp.getContext(), object.getToken());
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onError(String error) {
+                    Log.e("Auth", error);
+
+                }
+            });
         }
     }
 }

@@ -24,7 +24,7 @@ import retrofit2.Response;
 public class AdminLogic {
 
     public void getAdminList(final AppCallback<List<Admin>> callBack) {
-        Call<List<Admin>> adminsList = RestUrlUtil.getRetrofit().create(AdminService.class).getAdminList(PracticeAppPref.getPrefToken(PracticeApp.getContext()));
+        final Call<List<Admin>> adminsList = RestUrlUtil.getRetrofit().create(AdminService.class).getAdminList(PracticeAppPref.getPrefToken(PracticeApp.getContext()));
         Log.w("Token", PracticeAppPref.getPrefToken(PracticeApp.getContext()));
         adminsList.enqueue(new Callback<List<Admin>>() {
             @Override
@@ -33,10 +33,6 @@ public class AdminLogic {
                     callBack.onError("error");
                 } else {
                     callBack.onSuccess(response.body());
-                    for (Admin admin : response.body()) {
-                        RealmDao realmDao = new RealmDao();
-                        realmDao.saveRealmAdminList(admin);
-                    }
                 }
             }
 
@@ -45,6 +41,11 @@ public class AdminLogic {
                 callBack.onError(t.getMessage());
             }
         });
+    }
+
+    public void saveAdminToRealm(Admin admin, Realm realm, AppCallback<String> callback) {
+        RealmDao dao = new RealmDao(realm);
+        dao.saveRealmAdminList(admin, callback);
     }
 
     public void saveAdmin(Admin adminRequest, final AppCallback<String> callback) {
@@ -66,4 +67,8 @@ public class AdminLogic {
         });
     }
 
+    public void findAdminList(Realm realm, final AppCallback<List<Admin>> callback) {
+        RealmDao dao = new RealmDao(realm);
+        dao.findAdminList(callback);
+    }
 }

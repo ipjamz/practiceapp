@@ -17,7 +17,7 @@ import com.example.peter.findr_practice_app.models.Admin;
  * Created by peter on 12/12/17.
  */
 
-public class AdminCreateActivity extends AppCompatActivity implements View.OnClickListener, AppCallback<String> {
+public class AdminCreateActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,7 +38,18 @@ public class AdminCreateActivity extends AppCompatActivity implements View.OnCli
             admin.setPassword(((TextView) findViewById(R.id.tv_password)).getText().toString());
             if (confirmPassword(((TextView) findViewById(R.id.tv_password)).getText().toString())) {
                 AdminLogic adminLogic = new AdminLogic();
-                adminLogic.saveAdmin(admin, this);
+                adminLogic.saveAdmin(admin, new AppCallback<String>() {
+                    @Override
+                    public void onSuccess(String object) {
+                        finish();
+                        Log.w("saveAdmin", object);
+                    }
+
+                    @Override
+                    public void onError(String error) {
+                        Log.w("saveAdmin", error);
+                    }
+                });
             }
         } else if (view == findViewById(R.id.btn_cancel)) {
             finish();
@@ -52,14 +63,4 @@ public class AdminCreateActivity extends AppCompatActivity implements View.OnCli
         return false;
     }
 
-    @Override
-    public void onSuccess(String object) {
-        finish();
-        Log.w("saveAdmin", object);
-    }
-
-    @Override
-    public void onError(String error) {
-        Log.w("saveAdmin", error);
-    }
 }
