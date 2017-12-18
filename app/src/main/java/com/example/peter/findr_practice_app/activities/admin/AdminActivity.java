@@ -39,7 +39,12 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
         listView = (ListView) findViewById(R.id.lv_admins);
 
         getAdminList();
-        displayAdminList(realm);
+        displayAdminList();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     @Override
@@ -84,7 +89,7 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-    private void displayAdminList(Realm realm) {
+    private void displayAdminList() {
         AdminLogic logic = new AdminLogic();
         logic.findAdminList(realm, new AppCallback<List<Admin>>() {
             @Override
