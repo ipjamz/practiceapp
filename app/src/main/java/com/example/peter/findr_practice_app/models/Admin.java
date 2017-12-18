@@ -1,10 +1,13 @@
 package com.example.peter.findr_practice_app.models;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by peter on 12/4/17.
  */
 
-public class Admin {
+public class Admin extends RealmObject {
 
     private boolean accountNonExpired;
     private boolean accountNonLocked;

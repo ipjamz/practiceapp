@@ -2,6 +2,7 @@ package com.example.peter.findr_practice_app.logics;
 
 import android.util.Log;
 
+import com.example.peter.findr_practice_app.RealmDao;
 import com.example.peter.findr_practice_app.callbacks.AppCallback;
 import com.example.peter.findr_practice_app.PracticeAppPref;
 import com.example.peter.findr_practice_app.services.AdminService;
@@ -11,6 +12,7 @@ import com.example.peter.findr_practice_app.models.Admin;
 
 import java.util.List;
 
+import io.realm.Realm;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,6 +33,10 @@ public class AdminLogic {
                     callBack.onError("error");
                 } else {
                     callBack.onSuccess(response.body());
+                    for (Admin admin : response.body()) {
+                        RealmDao realmDao = new RealmDao();
+                        realmDao.saveRealmAdminList(admin);
+                    }
                 }
             }
 
