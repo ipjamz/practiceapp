@@ -42,10 +42,6 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
         displayAdminList();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
 
     @Override
     public void onClick(View view) {
@@ -67,19 +63,17 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onSuccess(List<Admin> object) {
                 Log.w("getAdminList", "success");
-                for (Admin admin : object) {
-                    logic.saveAdminToRealm(admin, realm, new AppCallback<String>() {
-                        @Override
-                        public void onSuccess(String object) {
-                            Log.w("saveAdminToRealm", object);
-                        }
+                logic.saveAdminToRealm(object, realm, new AppCallback<String>() {
+                    @Override
+                    public void onSuccess(String object) {
+                        Log.w("saveAdminToRealm", object);
+                    }
 
-                        @Override
-                        public void onError(String error) {
-                            Log.w("saveAdminToRealm", error);
-                        }
-                    });
-                }
+                    @Override
+                    public void onError(String error) {
+                        Log.w("saveAdminToRealm", error);
+                    }
+                });
             }
 
             @Override

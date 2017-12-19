@@ -43,9 +43,9 @@ public class AdminLogic {
         });
     }
 
-    public void saveAdminToRealm(Admin admin, Realm realm, AppCallback<String> callback) {
+    public void saveAdminToRealm(List<Admin> adminList, Realm realm, AppCallback<String> callback) {
         RealmDao dao = new RealmDao(realm);
-        dao.saveRealmAdminList(admin, callback);
+        dao.saveRealmAdminList(adminList);
     }
 
     public void saveAdmin(Admin adminRequest, final AppCallback<String> callback) {
